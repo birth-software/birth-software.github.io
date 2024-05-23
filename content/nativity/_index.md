@@ -7,10 +7,13 @@ Nativity is the language and compiler for Birth Software.
 
 ## Hello, World!
 
-```nat {filename="main.nat"}
-const std = #import("std");
+This is a valid hello world with libc linked
 
-const main = fn () *!void {
+```nat {filename="main.nat"}
+module std;
+
+fn [cc(.c)] main [export] () s32 {
     std.print("Hello world\n");
+    return 0;
 }
 ```
