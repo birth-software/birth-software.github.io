@@ -1,6 +1,5 @@
 ---
 title: Nativity
-next: first-page
 ---
 
 Nativity is the language and compiler for Birth Software.
@@ -26,24 +25,26 @@ Nonetheless, self-hosting is the main immediate goal of the project, so after th
 
 Before self-hosting, there will be no float or vector support. Intrinsics will only be implemented as needed. After self-hosting, an implementation of all this will follow.
 
-# Basic types
+# Language draft
 
-## Boolean
+## Basic types
+
+### Boolean
 Nativity does not support boolean types since there is no hardware concept of it. Instead, integer types should support the boolean use case.
 
-## Integers
+### Integers
 
 Nativity supports 1-bit to 64-bit signed and unsigned integers.
 
-## Float
+### Float
 
 Nativity does not support float types just yet. Support for 32-bit and 64-bit floats will be added.
 
-## Vector
+### Vector
 
 Nativity does not support vector types just yet. Support will be added.
 
-## Hello, World!
+### Hello, World!
 
 This is a valid hello world with libc linked
 
@@ -53,5 +54,29 @@ module std;
 fn [cc(.c)] main [export] () s32 {
     std.print("Hello world\n");
     return 0;
+}
+```
+
+## Conditionals
+
+```nat {filename="main.nat"}
+module std;
+
+fn [cc(.c)] main [export] () s32 {
+    // With integers:
+    >a: u32 = 1;
+    if (a) {
+        // 'a' is not zero
+    } else {
+        // 'a' is zero
+    }
+
+    // With pointers
+    >pointer: ?*u32 = a.&;
+    if (?a) {
+        // Here the variable is shadowed, the attribute "non-null" is added to the backend to the pointer variable
+    } else {
+        // Here the pointer is null
+    }
 }
 ```
