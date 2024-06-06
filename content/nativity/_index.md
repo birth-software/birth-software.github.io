@@ -4,7 +4,7 @@ title: Nativity
 
 Nativity is the language and compiler for Birth Software.
 
-# Design goals
+# Design decisions and goals
 
 Nativity is aimed to be reliable, fast and secure. It's designed with performance in mind. A few goals:
 
@@ -16,6 +16,8 @@ Nativity is aimed to be reliable, fast and secure. It's designed with performanc
 - Statically-linked binaries when possible.
 - Allocation in the standard library is based on virtual memory based arenas.
 - 64-bit platform focus
+- Types are not values
+- Uniforming runtime and comptime evaluation is inherently slow. Specialized solutions must be proposed in order to guarantee efficiency.
 
 # Initial constraints
 
@@ -73,7 +75,7 @@ fn [cc(.c)] main [export] () s32 {
 
     // With pointers
     >pointer: ?*u32 = a.&;
-    if (?a) {
+    if (?pointer) {
         // Here the variable is shadowed, the attribute "non-null" is added to the backend to the pointer variable
     } else {
         // Here the pointer is null
