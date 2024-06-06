@@ -47,7 +47,7 @@ Nativity does not support float types just yet. Support for 32-bit and 64-bit fl
 
 Nativity does not support vector types just yet. Support will be added.
 
-### Hello, World!
+## Hello, World!
 
 This is a valid hello world with libc linked
 
