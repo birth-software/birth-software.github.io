@@ -62,6 +62,8 @@ fn [cc(.c)] main [export] () s32 {
 
 ## Conditionals
 
+Here is how conditionals work, both with integers (which act as booleans) and pointers:
+
 ```nat {filename="main.nat"}
 module std;
 
@@ -77,9 +79,12 @@ fn [cc(.c)] main [export] () s32 {
     // With pointers
     >pointer: ?*u32 = a.&;
     if (?pointer) {
-        // Here the variable is shadowed, the attribute "non-null" is added to the backend to the pointer variable
+        // Here the variable is shadowed for this scope.
+        // The attribute "non-null" is added to the backend to the pointer variable
     } else {
         // Here the pointer is null
     }
+
+    return 0;
 }
 ```
