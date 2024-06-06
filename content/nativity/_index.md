@@ -4,7 +4,10 @@ title: Nativity
 
 Nativity is the language and compiler for Birth Software.
 
-# Design decisions and goals
+
+# Language draft
+
+## Design decisions and goals
 
 Nativity is aimed to be reliable, fast and secure. It's designed with performance in mind. A few goals:
 
@@ -19,15 +22,13 @@ Nativity is aimed to be reliable, fast and secure. It's designed with performanc
 - Types are not values
 - Uniforming runtime and comptime evaluation is inherently slow. Specialized solutions must be proposed in order to guarantee efficiency.
 
-# Initial constraints
+## Initial constraints
 
 Before self-hosting, Nativity will only be available on Linux (x86\_64) and MacOS (aarch64). The main reason for this is that these are the platforms commonly used for the lead developer, so extending the target range could be wasteful.
 
 Nonetheless, self-hosting is the main immediate goal of the project, so after that Windows will be supported as well. The supported target range after self-hosted will begin with aarch64 and x86\_64 as cpu architectures and Linux, MacOS and Windows as operating systems. The target range is subject to expansion.
 
 Before self-hosting, there will be no float or vector support. Intrinsics will only be implemented as needed. After self-hosting, an implementation of all this will follow.
-
-# Language draft
 
 ## Basic types
 
