@@ -88,3 +88,56 @@ fn [cc(.c)] main [export] () s32 {
     return 0;
 }
 ```
+
+## Operators (from highest to lowest precedence)
+
+### Unary suffix operators
+
+- Call: `'a()'`
+- Array: `a[]`
+- Field/namespace: `a.b` (TODO: should we separate them?)
+- Pointer dereference: `a.@` (TODO: study the available tokens)
+
+### Unary prefix operators
+
+- Negation: `-(%)a` (Optionally, the negation operator can be wrapping)
+- Logical NOT: `!a`
+- Bitwise NOT: `~a`
+- Address of: `&a`
+
+### Divide/multiply operators
+
+- Multiply: `*`
+- Divide: `/`
+- Modulus: `%`
+
+### Add/substract operators
+
+- Add: `+`
+- Substract `-`
+
+### Shift operators
+
+- Shift left: `<<`
+- Shift right: `>>`
+
+### Binary bitwise operators
+
+- And: `&`
+- Or: `|`
+- Xor: `^`
+
+### Comparison operators
+
+- Equal: `==`
+- Not equal: `!=`
+- Less than: `<`
+- Greater: `>`
+- Less or equal than: `<=`
+- Greater or equal than: `>=`
+
+### Assignment operators
+
+- Assignment ('=') and the rest of assignment operators
+
+
